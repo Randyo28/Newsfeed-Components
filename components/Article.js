@@ -103,6 +103,7 @@ const data = [
     <span class="expandButton">+</span>
   </div>
 
+
   Step 2: Still inside `articleMaker`, add an event listener to the span.expandButton.
   This listener should toggle the class 'article-open' on div.article.
 
@@ -114,3 +115,36 @@ const data = [
   Step 5: Try adding new article object to the data array. Make sure it is in the same format as the others.
   Refresh the page to see the new article.
 */
+
+
+
+function articleMaker({title, date, firstParagraph, secondParagraph, thirdParagraph}){
+  //creating elements
+const article = document.createElement('div')
+const titleh2 = document.createElement('h2')
+const dateP = document.createElement('p')
+const paragraph1 = document.createElement('p')
+const paragraph2 = document.createElement('p')
+const paragraph3 = document.createElement('p')
+const span = document.createElement('span')
+
+//appending elements starting with body
+document.body.appendChild(article)
+article.appendChild(titleh2)
+article.appendChild(dateP)
+article.appendChild(paragraph1)
+article.appendChild(paragraph2)
+article.appendChild(paragraph3)
+article.appendChild(span)
+
+//adding classNames to each elements
+article.className = 'article'
+dateP.className = 'date'
+span.className = 'expandButton'
+
+titleh2.textContent = title;
+dateP.textContent = date;
+paragraph1.textContent = firstParagraph;
+paragraph2.textContent = secondParagraph;
+paragraph3.textContent = thirdParagraph;
+}
