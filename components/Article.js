@@ -116,11 +116,11 @@ const data = [
   Refresh the page to see the new article.
 */
 
+ const articles = document.querySelector('.articles')
 
 function articleMaker({title, date, firstParagraph, secondParagraph, thirdParagraph}){
   //creating elements
-const articleDiv = document.querySelector('.articles')
-const articleDiv2 = document.createElement('div')
+const article = document.createElement('div')
 const titleh2 = document.createElement('h2')
 const dateP = document.createElement('p')
 const paragraph1 = document.createElement('p')
@@ -129,16 +129,16 @@ const paragraph3 = document.createElement('p')
 const span = document.createElement('span')
 
 //appending elements starting with body
-articleDiv.appendChild(articleDiv2)
-articleDiv2.appendChild(titleh2)
-articleDiv2.appendChild(dateP)
-articleDiv2.appendChild(paragraph1)
-articleDiv2.appendChild(paragraph2)
-articleDiv2.appendChild(paragraph3)
-articleDiv2.appendChild(span)
+articles.appendChild(article)
+article.appendChild(titleh2)
+article.appendChild(dateP)
+article.appendChild(paragraph1)
+article.appendChild(paragraph2)
+article.appendChild(paragraph3)
+article.appendChild(span)
 
 //adding classNames to each elements
-articleDiv2.className = 'article'
+article.className = 'article'
 dateP.className = 'date'
 span.className = 'expandButton'
 
@@ -152,19 +152,18 @@ span.textContent = '+'
 
 //button-expand eventlistener
 span.addEventListener('click', e => {
-  articleDiv2.classList.toggle('article-open')
+  article.classList.toggle('article-open')
 })
 
-
-  return articleDiv
+  return article
 }
 
-console.log(articleMaker({data}))
+// console.log(articleMaker({data}))
 
-
+// data.forEach(dataObj => articleMaker(dataObj) )
 const loopData = data.map(dataObj => {
   const newData = articleMaker(dataObj)
   return newData
 })
 
-loopData;
+ loopData;
